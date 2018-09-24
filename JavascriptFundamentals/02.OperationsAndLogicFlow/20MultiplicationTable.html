@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<script>
+    function getMultiplicationTable(n){
+        let html = '<table border="1">\n';
+
+        html += '<tr><th>x</th>';
+
+        for (let col = 1; col <= n; col++) {
+            html += `<th>${col}</th>`;
+        }
+
+        html += '</tr>\n';
+
+        for (let row = 1; row <= n; row++) {
+            html += '<tr>';
+
+            for (let col = 1; col <= n + 1; col++) {
+                if (col === 1) {
+                    html += `<th>${row}</th>`;
+                } else {
+                    html += `<td>${row * col}</td>`;
+                }
+            }
+
+            html += '</tr>\n';
+        }
+
+        return html += '</table>';
+    }
+
+    document.body.innerHTML = getMultiplicationTable(5);
+</script>
+
+</body>
+</html>
