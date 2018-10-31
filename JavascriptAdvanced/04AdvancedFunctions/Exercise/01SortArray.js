@@ -1,22 +1,14 @@
-function arraySorter(data, command) {
-    let sortArray = (() => {
+function sortArray(data, command) {
+    function finalSort() {
         return {
             asc: (data) => {
-                let arr = data.sort((a, b) => {
-                    return a - b;
-                });
-                
-                return arr;
+                return data.sort((a, b) => a - b);
             },
             desc: (data) => {
-                let arr = data.sort((a, b) => {
-                    return b - a;
-                });
-                
-                return arr;
+                return data.sort((a, b) => b - a);
             }
         }
-    })();
+    }
     
-    return sortArray[command](data);
+    return finalSort()[command](data);
 }

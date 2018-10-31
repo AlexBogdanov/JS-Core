@@ -1,38 +1,38 @@
-function personalBMI(name, age, weightKg, heigthCm) {
+function personalBMI(name, age, weightKg, heightCm) {
     function calculateBMI() {
         return weightKg / Math.pow(heightM, 2);
     }
 
-    function defineStatus() {
+    function calculateStatus() {
         if (bmi < 18.5) {
             return 'underweight';
         } else if (bmi < 25) {
             return 'normal';
         } else if (bmi < 30) {
             return 'overweight';
-        } else if (bmi > 30) {
+        } else if (bmi >= 30) {
             return 'obese';
-        }
+        } 
     }
 
-    let heightM = heigthCm / 100;
+    let heightM = heightCm / 100;
     let bmi = calculateBMI();
-    let status = defineStatus();
+    let status = calculateStatus();
 
-    let profile = {
+    let personalInfo = {
         name,
         personalInfo: {
             age,
-            weight: weightKg,
-            height: heigthCm
+            weightKg,
+            heightCm
         },
         BMI: Math.round(bmi),
         status
     };
 
     if (status === 'obese') {
-        profile.recommendation = 'admission required';
+        personalInfo.recommendation = 'admission required';
     }
-    
-    return profile;
+
+    return personalInfo;
 }

@@ -1,19 +1,19 @@
 function argumentInfo() {
-    let types = {};
+    let typesAndCount = {};
 
-    for (let i = 0; i < arguments.length; i++) {
-        if (!types.hasOwnProperty(typeof(arguments[i]))) {
-            types[typeof(arguments[i])] = 1;
+    for (let argument of arguments) {
+        if (!typesAndCount.hasOwnProperty(typeof(argument))) {
+            typesAndCount[typeof(argument)] = 1;
         } else {
-            types[typeof(arguments[i])]++;
+            typesAndCount[typeof(argument)] += 1;
         }
 
-        console.log(`${typeof(arguments[i])}: ${arguments[i]}`);
+        console.log(`${typeof(argument)}: ${argument}`);
     }
 
-    Object.keys(types).sort((type1, type2) => {
-        return types[type2] - types[type1];
+    Object.keys(typesAndCount).sort((type1, type2) => {
+        return typesAndCount[type2] - typesAndCount[type1];
     }).forEach(type => {
-        console.log(`${type} = ${types[type]}`);
+        console.log(`${type} = ${typesAndCount[type]}`);
     });
 }
