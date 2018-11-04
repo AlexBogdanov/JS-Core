@@ -6,11 +6,8 @@ function add(num) {
         return calc;
     }
 
-    calc.toString = function() {
-        return sum;
-    }
-
+    calc.toString = function() { return sum };
     return calc;
 }
 
-console.log(add(1)(2)(3));
+module.exports = add;
